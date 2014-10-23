@@ -1,0 +1,30 @@
+
+def quicksort(lista):
+    menorLista=[]
+    pivotLista=[]
+    mayorLista=[]
+    if len(lista)<=1:
+        return lista
+    else:
+        pivot=lista[0]#recuerda que pivot es una lista vacÃ­a, no puede tener elmentos mayores.
+        print pivot
+        for i in lista:
+            if i<pivot:
+                menorLista.append(i)
+            else:
+                if i>pivot:
+                    mayorLista.append(i)
+                else:
+                    pivotLista.append(i)
+        menorLista=quicksort(menorLista)
+        mayorLista=quicksort(mayorLista)
+        return menorLista+pivotLista+mayorLista
+        
+def main():
+    lista=[0,3,10,4,9,5]
+    print lista
+    print quicksort(lista)
+
+if __name__=="__main__":
+    main()
+    
