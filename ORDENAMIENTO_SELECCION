@@ -1,0 +1,20 @@
+
+def ordenado(lista):
+    n=len(lista)-1
+    for i in range (0,n-1):
+        minimo=i #ya que i comienza con 0
+        for j in range(i+1,n):
+            if lista[j]<lista[minimo]:
+                minimo=j
+        if minimo!=i:
+            lista[i],lista[minimo]=lista[minimo],lista[i]
+        return lista
+        
+def main():
+    lista=[4,6,2,8]
+    print lista
+    print ordenado(lista)
+
+if __name__=="__main__":
+    main()       
+#tienen tiempo O(n2)
