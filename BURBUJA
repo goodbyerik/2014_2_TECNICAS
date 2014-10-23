@@ -1,0 +1,22 @@
+
+def burbuja(lista):
+    n=len(lista)
+    i=1
+    swap=True
+    while swap:
+        swap=False
+        i=i+1
+        for pos in range(0,n-1):
+            if lista[pos]>= lista[pos+1]:
+                lista[pos],lista[pos+1]=lista[pos+1],lista[pos]
+                swap=True
+    return lista
+        
+def main():
+    lista=[4,6,2,8]
+    print lista
+    print burbuja(lista)
+
+if __name__=="__main__":
+    main()
+    
