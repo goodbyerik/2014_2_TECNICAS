@@ -1,0 +1,38 @@
+
+def mergeSort(lista,ini,fin):
+  #ESTABLECER INI,FIN,MITAD
+    if ini<fin:
+        mitad=(ini+fin)/2
+        mergeSort(lista,ini,mitad)
+        mergeSort(lista,mitad+1,fin)
+        merge(lista,ini,mitad,fin)
+
+def merge(listaT,ini,mitad,fin):
+
+    b=[]
+    #RECUERDA QUE SE DEBE DEFINIR TODAS LAS LISTAS
+    ind1=ini
+    ind2=mitad+1
+    while ind1<=mitad and ind2<=fin:
+        if listaT[ind1]<listaT[ind2]:#el pedazo de lista desordenada
+            b.append(listaT[ind1])#b es lista a ordenar
+            ind1=ind1+1
+        else:
+            b.append(listaT[ind2])
+            ind2=ind2+1
+    while ind1<=mitad:
+        b.append(listaT[ind1])
+        ind1=ind1+1
+    while ind2<=fin:
+        b.append(listaT[ind2])
+        ind2=ind2+1
+    for i, value in enumerate(b):
+        listaT[ini+i]=value
+        #listaT=b
+        #print listaT
+def main():
+    l=[1,4,5,8,3,7,6]
+    mergeSort(l,0,len(l)-1)
+    print l
+if __name__=="__main__":
+    main()
