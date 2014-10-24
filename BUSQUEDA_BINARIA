@@ -1,20 +1,26 @@
 
-def busquedabinaria(lista,ini,fin,n):
-  med=(ini+fin)/2
-  while lista[ini]<lista[fin]:
-    med=(ini+fin)/2
-    if lista[med]==n:
-      return med
-    else:
-      if n<lista[med]:
-        fin=med-1
-      else:
-        ini=med+1
-
-#SI PRUEBO CON N= 3 O N=8 SALE MAL.. POR QUE???
-def main():
-  lista=[1,3,5,7,8]
-  print busquedabinaria(lista,0,len(lista)-1,3)
+def binario(lista,n):
+  inicio= 0
+  final= len(lista)-1
+  if lista[inicio]==n:
+    return inicio
+  if lista[final]==n:
+    return final
     
+  while inicio <= final:
+    medio=(inicio+final)/2
+    if lista[medio]==n:
+      return medio
+    else:
+      if n<lista[medio]:
+        final=medio-1
+      else:
+        inicio=medio+1
+  return -1
+  
+def main():
+  lista=[2,4,6,10,11,45,50,59,60,66,69,70]
+  print binario(lista,59)
+
 if __name__=="__main__":
   main()
