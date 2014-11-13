@@ -1,0 +1,191 @@
+import Queue
+import networkx as nx
+
+class Vertice:
+    def __init__(self,key):
+        self.id = key #key es el nombre del vector, ej, 1 o 2
+        #es importante que key va a ser un valor a incoporar con el vertice
+        #Aqui las caracteristicas de un vertice.
+        self.adyacente={} #la palabra adyacente sera un diccionario {}
+        self.color="white" #si se da una referencia al color, todo es blanco
+        self.distancia=0 #si se da una referencia a dist, este es 0
+        #los niveles de como avanza
+        self.prev=None #no hay nada previo
+        
+    def agregarVecino(self,vert,peso=0):
+        #para utilizar la operacion agregar vecino.
+        #se pone self para llamar al objeto
+        #utiliza los valores vec y peso.
+        self.adyacente[vert]=peso
+        #la parte "adyancete" del vertice, el vertice "vec" tendra el peso=0
+    def getConexiones(self):
+        return self.adyacente.keys()
+        #saca las llaves del diccionario adyacente. conexiones de viertices
+    def getId(self):
+        return self.id
+        #numero de cada vertice
+    def getPeso(self,vert):
+        return self.adyacente[vert]
+    def getColor(self):
+        return self.color
+    def setColor(self,color):
+        self.color=color
+    def getDistance(self):
+        return self.distancia
+    def setDistance(self,n):
+        self.distancia=n
+    def setPred(self,vertex):
+        self.pred=vertex
+        #es el anterior, coje un vertice y se manda a la variable ved
+        
+        
+class Grafo:
+    
+
+    def __init__(self):
+        self.ListaVert={}
+        self.numVertices=0
+        
+    def agregarVertice(self,key):
+        self.numVertices = self.numVertices + 1
+        nuevoVertice=Vertice(key)
+        self.ListaVert[key]=nuevoVertice
+        
+    def getVertice(self,n):
+        if n in self.ListaVert:
+            return self.ListaVert[n]
+        else:
+            return None
+            
+    def agregarLado(self,f,t,peso=0):
+        if f not in self.ListaVert:
+            self.agregarVertice(f)
+        self.ListaVert[f].agregarVecino(self.ListaVert[t],peso)
+        #esto es para que sea DIRIGIDO, solo una dirección.        
+        #self.ListaVert[t].agregarVecino(self.ListaVert[f],peso)
+        
+    def getVertices(self):
+        return self.ListaVertkeys()
+        
+    def __iter__(self):
+        return iter(self.ListaVert.values())
+        
+"""class Matriz:
+    def __init__(self,x,y):
+        self.matriz=all([])
+        self.x=x
+        self.y=y
+        self.numVertices=0"""
+        
+        
+def bfs(g,s): #SE SACA POR NIVELES
+    colaVertices=Queue.Queue() #jalar de la libreria cola, la cola
+    colaVertices.put(s)#para colocar un vertice en la cola
+    listaVert=[]
+    T=Grafo()
+    for i in range(8):#si se quiere n veces, en el bfs(g,s,n).. range es n+1
+        T.agregarVertice(i)
+    while not colaVertices.empty():
+        verticeActual=colaVertices.get()
+        #print "vertice actual ", verticeactual.getId()#
+        listaVert.append(verticeActual.getDistance())
+        for verAdy in verticeActual.getConexiones():
+            #print "vetrice adyacente ", verAdy.getId()
+            if verAdy.getColor()=="white":
+                verAdy.setColor("gray")
+                verAdy.setDistance(verticeActual.getDistance()+1)
+                verAdy.setPred(verticeActual)
+                colaVertices.put(verAdy)
+        T.agregarLado(verticeActual.getId(),verAdy.getId(),0)
+        #guarda los lados que estan en vertice.actual=colaVertices conexiones.
+        #imprime los vertices que estan al costado (los manda a T)
+        verticeActual.setColor("black")
+        #esto es para encolar el plomo a negro!!
+        
+    imprimir(T) #es para jalar a la funcion que va a imprimir.
+
+def imprimir(T):
+    Gr=nx.Graph()
+    for v in T:
+        for w in v.getConexiones():
+            print v.getId(),", ",w.getId()
+            Gr.add_edge(v.getId(),w.getId())
+    nx.draw(Gr)
+    
+def esLado(G,x,y):    
+       
+    if x==None or y==None:
+        return False
+    for v in G: #coque los vertices de g
+        if v.getId()==x.getId():
+            for w in x.getConexiones():
+                if w.getId()==y.getId():
+                    return True
+    return False
+
+def esLado2(G,x,y):
+    if x.getId() not in 6:
+        return False
+    for v in G: #coque los vertices de g
+        if v.getId()==x.getId():
+            for w in x.getConexiones():
+                if w.getId()==y.getId():
+                    return True
+    return False
+
+def dfs(G,lista,x,T):   
+    sw=0
+    lista[x.getId()]=True
+    for w in range(8):
+        if lista[w]==False and esLado(G,x,G.getVertice(w)):
+            T.agregarLado(x.getId(),G.getVertice(w).getId())
+            dfs(G,lista,G.getVertice(w),T)
+    for w in range(8):
+        if lista[w]==True:
+            sw=1
+    if sw==1:
+        return T
+
+def main():
+    #se verifica que si los vertices existen.
+    g=Grafo()
+    listaMarcado=[]
+    for i in range(8):
+        g.agregarVertice(i)
+        #el range 8 porque QUE solo afecta a
+        #los valores del vecino?!?!
+    g.agregarLado(3,2,5)
+        #el que manda,vecino,peso
+    g.agregarLado(2,0,4)
+    g.agregarLado(0,2,9)
+    g.agregarLado(2,6,5)
+    g.agregarLado(0,3,4)
+    g.agregarLado(6,4,1)
+    g.agregarLado(3,6,1)
+    g.agregarLado(2,5,2)
+    g.agregarLado(1,4,1)
+    g.agregarLado(2,4,1)
+
+
+    #for v in g: #v itera en los vertices de la lista g
+        #for w in v.getConexiones(): #
+                #print v.getId(),",",w.getId(),",",v.getPeso(w)
+                #dict={ v.getId(),",",w.getId(),",",v.getPeso(w)}
+                #print sorted(dict)
+    #bfs(g,g.getVertice(0))
+    imprimir(g) #imprime el grafo existente
+    #print esLado(g,g.getVertice(3),g.getVertice(2))
+    
+    """for i in range(8):
+        listaMarcado.append(False)
+    print listaMarcado
+    
+    t=Grafo()
+    T=Grafo()
+    for i in range(8):
+        t.agregarVertice(i)
+    #T=dfs(g,listaMarcado,g.getVertice(0),t)
+    imprimir(T)"""
+        
+if __name__=="__main__":
+    main()
