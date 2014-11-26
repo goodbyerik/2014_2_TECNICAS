@@ -1,0 +1,29 @@
+#lang scheme
+"(define (imprimir lista)
+  (if (empty? lista)
+      (void)
+      (begin
+        (display (car lista))
+        (newline)
+        (imprimir (cdr lista)))))"
+
+
+"version1 recursivo"      
+"(define (sumarecursiva x)
+  (if (< x 0)
+      0
+      (if (= x 0)
+          x
+          (+ x (sumarecursiva (- x 1))))))"
+
+"version2 recursivo"
+"(define (sumacomulado x s)
+  (if (< x 0)
+      0
+      (if (= x 0)
+          s
+          (display (sumacomulado (- x 1) (+ s x))))))"
+"(map (lambda(x) (+ x 1))'(1 2 3))" "suma las variables"
+"(filter (lambda (x) (equal? x 1)) '(1 2 3))" "lambda es llamar la variablex, y luego compara"
+"(length (filter (lambda (x) (equal? x 1)) '(1 2 3))" "es funcional, maás rapido y no cuenta cada linea en el programar"
+"(foldr + 0 '(1 2 3))" "0+1+2+3=6"
