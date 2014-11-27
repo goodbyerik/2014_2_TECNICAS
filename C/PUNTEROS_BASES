@@ -31,3 +31,12 @@ int main(int argc, char *argv[]) {
 	// entonces "*c->b"="2->b"
 	return 0;
 }
+_______
+NOTA; 
+el igual "=" es como una flecha "->"
+es decir, c=w >>> c->w (valor de c depende de w)
+AHORA
+c[]; v[]
+sea c=w, significa que los valores de c[]->w[] (valores de lista "c" afectan a lista "w")
+**eso no significa que vector v[] es el mismo que vector c[].
+
