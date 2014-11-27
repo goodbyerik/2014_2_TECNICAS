@@ -1,0 +1,14 @@
+int main(int argc, char *argv[]) {
+	int i,*p;
+	//donde i es el variable
+	//*p es el puntero o KEY
+	i=10;
+	//dado que es entero la variable i
+	p=&i;//no olvidarte del punto y coma
+	//siempre al puntero se le asigna una dirección
+	printf("valor de la variable i %d\n",i);
+	printf("valor de la dirección i %d\n",&i);
+	printf("valor de la dirección p %d\n",*p);
+	//dado que p es un puntero, para saber su valor como puntero colocar *p
+	//dado que i es una variable, si pongo &i digo que i es una dirección de mmeopria en el espacio
+	return 0;
