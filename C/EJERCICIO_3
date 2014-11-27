@@ -1,0 +1,17 @@
+int main(int argc, char *argv[]) {
+	int v[]={1,2,3,4,5};
+	//SE ESTABLECERA UN FOR
+	int i,s;
+	//la variable S debe tener un valor. se le establece un valor =0
+	s=0;
+	for (i=0;i<5;i++) //aquí el for es como un while.
+	// el ; (punto y coma)
+	{
+		printf("el valor de v[%d]=%d\n",i,v[i]);//v[i] es para buscar el elemento i
+		//el %d indica que el valor a imprimir es decimal, el \n es para saltar el print en linea en linea
+		//v[%d], i... el %d es remplazado por los valores de i
+		s=s+v[i];
+	}//todo lo que esta dentro del for es entre llaves, es como si fuese una lista dle for
+	printf("suma es %d\n",s);
+	return 0;
+}
