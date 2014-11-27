@@ -12,3 +12,22 @@ int main(int argc, char *argv[]) {
 	//dado que p es un puntero, para saber su valor como puntero colocar *p
 	//dado que i es una variable, si pongo &i digo que i es una dirección de mmeopria en el espacio
 	return 0;
+________________________________
+Si quiero cambiar el valor del puntero, VER LINEA 24!!!
+________________________________
+int main(int argc, char *argv[]) {
+	int b,*c;
+	//ambos son enteros
+	b=20;
+	c=&b;
+	printf("valor de puntero c %d\n",*c);
+	//recuerda que es importante mencionar el valor de la variable
+	*c=2;
+	printf("nuevo valor del puntero c %d\n",*c);
+	//y es to implica qu el valor de b cambie
+	printf("nuevo valor de variable b %d\n",b);
+	// c=&b --> "c->b"
+	// sí "c->b" y "*c->2->c"
+	// entonces "*c->b"="2->b"
+	return 0;
+}
