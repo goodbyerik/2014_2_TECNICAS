@@ -1,0 +1,11 @@
+int main(int argc, char *argv[]) {
+	//float a,b,s;
+	//scanf("%f",&a); para float
+	//scanf("%d",&a); para entero (integer)
+	int a,b,s;
+	scanf("%d",&a);
+	scanf("%d",&b); //scan f es para que almacena la variable
+	s=a+b;
+	printf("valor de a %d\n",s);
+	return 0;
+}
