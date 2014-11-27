@@ -1,0 +1,22 @@
+int main(int argc, char *argv[]) {
+	//para modificar variables
+	int i;
+	int *p;//cualquirr variable puntero, es asterisco
+	i=10;
+	double *q;//q sera una variable decimal.
+	printf("direccion de q antes %d\n",&q);
+	p=&i;//p apunta a la direccion de i
+	q=&i;//q->i, i=10.
+	printf("direccion de i %d\n",&i);//para sacar la direccion
+	
+	printf("direccion de i rel a nada %d\n",i);// retorna 10
+	printf("direccion de p rel a i %d\n",p);
+	printf("direccion de q rel a i %d\n",q);
+	printf("direccion de q %d\n",*q);
+	*p=2;//se dice que p vale 2
+	printf("direccion de p nuevo %d\n",*p);//cambia el valor de i
+	printf("direccion de i nuevo %d\n",i);//cambia el valor de i
+	//*p->i=10
+	//*p<-2-<i::i=2
+	return 0;
+}
