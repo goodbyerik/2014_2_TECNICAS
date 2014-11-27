@@ -20,3 +20,57 @@ int main(int argc, char *argv[]) {
 ____CASO_2_
 	int i;
 	//variable "i" es un entero
+	for (i=0;i<4,i++)
+	//cada vez que se coloca un for/IF (algo iterativo)
+	{//abrir siempre una llave, colocar un TAB
+		printf("[%d]=%c----[%d]=%c\n",i,cad1[i],i,cad2[i]);
+		//cad2 apunta a cad1, cambiando un valor a cad2
+	}
+	cad2[0]='X';
+	printf("cambio en cad2\n");
+	//impresión de cad1 y cad2
+	for (i=0,i<4,i++)
+	{
+		printf("[%d]=%c----[%d]=%c\n",i,cad1[i],i,cad2[i]);
+	}
+	return 0;
+}
+---------------------------------
+"todo"
+int main(int argc, char *argv[]) {
+	char cad1[]="abcd";
+	//char es notación para CADENA DE CARACTERES
+	//char es una variable "cadena" (string)
+	char *cad2="efgh";
+	//ahora *cad2 es un puntero, un key (pero con letras)
+
+	printf("%s\n",cad1);
+	//imprime el valor de variable cad1
+	//el %s es para variable "STRING"
+	printf("%s\n",cad2);
+	//caso curioso
+	//si se coloca *cad2, la función no corre (ERROR)
+	//si se coloca cad2, la función si corre
+	//CORRECCION LINEA_11; se trata como una variable.
+	cad2=cad1;
+	printf("el nuevo valor de cad2 %s\n",cad2);
+	//esto dice que cad2 vale "abcd"
+	//mismo resultado si cad2=&cad1, dado que cad2 es un puntero (*cad2)
+	//es ERRONEO SI SE COLOCA *cad2="abc", esto es solo para var numericas
+	int i;
+	//variable "i" es un entero
+	for (i=0;i<4,i++)
+	//cada vez que se coloca un for/IF (algo iterativo)
+	{//abrir siempre una llave, colocar un TAB
+		printf("[%d]=%c----[%d]=%c\n",i,cad1[i],i,cad2[i]);
+		//cad2 apunta a cad1, cambiando un valor a cad2
+	}
+	cad2[0]='X';
+	printf("cambio en cad2\n");
+	//impresión de cad1 y cad2
+	for (i=0,i<4,i++)
+	{
+		printf("[%d]=%c----[%d]=%c\n",i,cad1[i],i,cad2[i]);
+	}
+	return 0;
+}
