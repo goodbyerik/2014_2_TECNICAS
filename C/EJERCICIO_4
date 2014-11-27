@@ -1,0 +1,25 @@
+struct alumno
+{
+	int codigo;
+	char* nombre;
+	int nota;
+}; //va un ";" ya que es una sola funcion.. mas no parte del int main.
+
+int main(int argc, char *argv[]) {
+	struct alumno e1,e2;
+	e1.codigo=100;
+	e1.nombre="marx";
+	e1.nota=101;
+	e2.codigo=99;
+	e2.nombre="stalin";
+	e2.nota=12;
+	printf("primer alumno\n");//para saltar linea
+	printf("codigo %d\n",e1.codigo);
+	printf("codigo %d\n",e1.nombre);
+	printf("codigo %d\n",e1.nota);
+	printf("segundo alumno\n");//para saltar linea
+	printf("codigo %d\n",e2.codigo);
+	printf("codigo %d\n",e2.nombre);
+	printf("codigo %d\n",e2.nota);
+	return 0;
+}
