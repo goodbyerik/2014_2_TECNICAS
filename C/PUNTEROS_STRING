@@ -4,8 +4,6 @@ int main(int argc, char *argv[]) {
 	//char es una variable "cadena" (string)
 	char *cad2="efgh";
 	//ahora *cad2 es un puntero, un key (pero con letras)
-	int i;
-	//variable "i" es un entero
 	printf("%s\n",cad1);
 	//imprime el valor de variable cad1
 	//el %s es para variable "STRING"
@@ -19,3 +17,6 @@ int main(int argc, char *argv[]) {
 	//esto dice que cad2 vale "abcd"
 	//mismo resultado si cad2=&cad1, dado que cad2 es un puntero (*cad2)
 	//es ERRONEO SI SE COLOCA *cad2="abc", esto es solo para var numericas
+____CASO_2_
+	int i;
+	//variable "i" es un entero
