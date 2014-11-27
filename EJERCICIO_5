@@ -1,0 +1,19 @@
+int sumatoria (int n){
+	int s=0;
+	printf("resultados s %d\n",s);
+	while(n>0){
+		s=s+n;
+		printf("resultados s %d\n",s);
+		n--;
+	}
+	return s;	
+}
+
+int main(int argc, char *argv[]) {
+	int n=0;
+	int r;
+	scanf("%d",&n);
+	r=sumatoria(n);
+	printf("%d\n",r);
+	return 0;
+}
