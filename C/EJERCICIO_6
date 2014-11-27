@@ -1,0 +1,18 @@
+{
+	int i;
+	for (i=0;i<5;i++){ 
+		//por cada for, una llave
+		printf("%d\n",i);
+		printf("%d\n",v[i]);
+		}
+}
+
+int main(int argc, char *argv[]) {
+	int a[]={1,2,3,4,5};
+	int *p,*q;
+	p=&a[2];
+	printf("elemento aputa p %p\n",*p);
+	q=p+3;
+	printf("elemento aputa q %p\n",*q);
+	return 0;
+}
