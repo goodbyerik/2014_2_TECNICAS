@@ -76,3 +76,41 @@ int main(int argc, char *argv[]) {
 	}
 	return 0;
 }
+_______
+ultimo analisis
+int main(int argc, char *argv[]) {
+	//se quiere colocar una variable string
+	char cad1[]="abcd";
+	char *cad2="fghi";
+	//el puntero es string por el char, dado que es el key no se tiene que establecer com lista[]
+	printf("el valor de cad1 %s\n",cad1);
+	printf("el valor de cad2 %s\n",cad2);
+	//dado que quiero saber los elementos como si fuese un string
+	//entonces defino contador
+	int i;
+	for (i=0;i<4;i++){
+		//recuerda que siempre se separa entre ; y es menor a cuatro ya que hay 4 letras, 3 espacios
+		//printf("la posicion de cad1[%d] es %c\n",i,cad1[i]);
+		//printf("la posicion de cad2[%d] es %c\n",i,cad2[i]);
+		//los cad, como son listas por [] entonces funcionan con cad[i]
+		//en simultaneo
+		printf("[%d]=%c---[%d]=%c\n",i,cad1[i],i,cad2[i]);
+		//recuerda que texto unico es %c y numero integer es %s
+	}
+	//si quiero cambiar los valores
+	//cad2=cad1;
+	// esta mal decir cad1=cad2, dado que cad2 es un puntero, y una variable no es afectada por un puntero
+	// aqui en cad2=cad1 se indica que el cambio simultaneo en cad1 y cad 2
+	cad1[0]='X';
+	//texto solo es el es entre comillas ''
+	//el cad1 posicion zero ahora vale X	
+	printf("cambio en cad2\n");
+	//impresión de cad1 y cad2
+	for (i=0;i<4;i++)
+	{
+		printf("valor nuevo de cad2 es [%d]--%c\n",i,cad1[i]);
+		//respuesta, cad2 es igual a cad1 cuando se pone cad2=cad1
+		//printf("[%d]=%c----[%d]=%c\n",i,cad1[i],i,cad2[i]);
+	}
+	return 0;
+}
