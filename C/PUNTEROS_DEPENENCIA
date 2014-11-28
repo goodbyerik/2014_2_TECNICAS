@@ -1,0 +1,23 @@
+int main(int argc, char *argv[]) {
+	//asignación de punteros
+	int *p,*q,i,j;
+	//siempre cuando hay punteros
+	p=&i;
+	//se está dando una orden, p puntero tomara el valor de i...
+	q=p;
+	//el puntero q tomara el valor de p
+	*p=1;
+	//si el puntero va a tomar un valor, se pone *p.
+	//se quiere saber el valor de i
+	printf("el valor de i es\n");
+	printf("%d\n",i); //i es entero, y es una variable y se quiere saber el valor como tal
+	// Ahora quiero cambiar el valor del puntero q que esta conectado a p
+	*q=2;
+	printf("el nuevo valor de q es\n");
+	printf("%d\n",*q); //arroja 2
+	printf("%d\n",q); //arroja valor de memoria 22935563
+	//probemos si cambia el valor de p dado que 'q esta conectado con p'
+	printf("el valor nuevin de p es %d\n",*p); //p = 2; si se ve afectado.
+	printf("el valor de i que esta conectado a p y este a q %d\n",i); //q-->p-->i///2-->p-->i///i=2
+	return 0;
+}
