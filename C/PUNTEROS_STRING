@@ -20,7 +20,7 @@ int main(int argc, char *argv[]) {
 ____CASO_2_
 	int i;
 	//variable "i" es un entero
-	for (i=0;i<4,i++)
+	for (i=0;i<4;i++)
 	//cada vez que se coloca un for/IF (algo iterativo)
 	{//abrir siempre una llave, colocar un TAB
 		printf("[%d]=%c----[%d]=%c\n",i,cad1[i],i,cad2[i]);
@@ -29,7 +29,7 @@ ____CASO_2_
 	cad2[0]='X';
 	printf("cambio en cad2\n");
 	//impresión de cad1 y cad2
-	for (i=0,i<4,i++)
+	for (i=0;i<4;i++)
 	{
 		printf("[%d]=%c----[%d]=%c\n",i,cad1[i],i,cad2[i]);
 	}
@@ -59,16 +59,18 @@ int main(int argc, char *argv[]) {
 	//es ERRONEO SI SE COLOCA *cad2="abc", esto es solo para var numericas
 	int i;
 	//variable "i" es un entero
-	for (i=0;i<4,i++)
+	for (i=0;i<4;i++)
+	//es importante el putno y coma
 	//cada vez que se coloca un for/IF (algo iterativo)
 	{//abrir siempre una llave, colocar un TAB
 		printf("[%d]=%c----[%d]=%c\n",i,cad1[i],i,cad2[i]);
+		//para lanzar la variable, se pone %d, osea es un print dinamico.
 		//cad2 apunta a cad1, cambiando un valor a cad2
 	}
 	cad2[0]='X';
 	printf("cambio en cad2\n");
 	//impresión de cad1 y cad2
-	for (i=0,i<4,i++)
+	for (i=0;i<4;i++)
 	{
 		printf("[%d]=%c----[%d]=%c\n",i,cad1[i],i,cad2[i]);
 	}
