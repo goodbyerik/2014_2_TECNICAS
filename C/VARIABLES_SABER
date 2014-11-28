@@ -1,0 +1,32 @@
+BASE
+Cuando se va a realizar un printf tener en cuenta
+------------------------------------------
+  estructura:
+  **Fijo
+  printf("texto a colocar\n");
+  **Dinámico
+  printf("texto a colocar + variable (simbolo)\n",variable) ;
+''''''\n es para imprimir en una nueva linea''''''
+------------------------------------------
+VARIABLES
+Cuando se va a llamar a una variable entero o 'INT'
+  Sea
+  **int i
+  **printf("%d\n",i);
+Cuando se va a llamar a un grupo de caracteres juntos o 'STRING'
+  a) Sea
+  **char cadena1[]="abcd" //cadena es doble comilla ""
+  **printf("%s\n,cadena1);
+  b) Sea
+  **char *cadena2="efgh" //cadena pero con funcion de puntero (KEY o llave)
+  **printf("%s\n,cadena2);
+Cuando se va a llamar a un caracter o 'x' // caracter va entre una comila ' '
+  c) Sea
+  **char cadena1[]="abcd" //el caracter será o: 'a' 'b' 'c' 'd'
+  **printf("%c\n",cadena1[i])
+  ****'a'=cadena1[0]
+  ****'b'=cadena1[1]
+  ****'c'=cadena1[2]
+  ****'d'=cadena1[3]
+  ******Se requiere de un for para llamar cada caracter.
+  
